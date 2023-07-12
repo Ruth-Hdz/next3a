@@ -20,6 +20,8 @@ export default function login(){
         <div className="container">
             <input onChange={handleChange} name="email" value={state.email} type="text" placeholder="email"/> 
             <input type="password" placeholder="123456"/>
+            <input type="password" placeholder="123456"/>
+
 
             <button>login</button>  
             </div>
