@@ -1,31 +1,36 @@
-"use client"
-import { useState } from "react";
-import "./register.css"
+'use client'
+import React from "react"
+import "./Register.css"
 
-export default function register(){
-    
-  const [state, setEstate] = useState({
-    email:"",
-    password:""
-   
-});
+function Register() {
 
-    const handleChange = (event)=>{
-        const{name,value}= event.target;
+    const [state, setState] = React.useState({
+        email: "",
+        password: ""
+    })
+
+    function handleChange(event) {
+        const value = event.target.value;
+        const name = event.target.name;
         
-        setEstate({
+        setState({
             ...state,
-            [name]:value
+            [name]: value
         })
     }
+
+    function onRegister() {
+        const {email, password} = state;
+        Register(email, password)
+    }
+
     return (
         <div className="container">
-            <input onChange={handleChange} name="email" value={state.email} type="text" placeholder="email"/> 
-            <input type="password" placeholder="123456"/>
-
-
-            <button>register</button>  
-            </div>
-
-)
+            <input onChange={handleChange} name="email" type="text" value={state.email} />
+            <input onChange={handleChange} name="password" type="password" value={state.password} />
+            <button onClick={onRegister}>Register</button>
+        </div>
+    )
 }
+
+export default Register;
