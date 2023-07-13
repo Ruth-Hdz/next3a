@@ -25,5 +25,7 @@ export default function login(){
 
             <button>login</button>  
             </div>
-    )
+
+)
 }
+
