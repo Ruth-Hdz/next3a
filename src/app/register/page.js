@@ -1,12 +1,13 @@
 "use client"
 import { useState } from "react";
-import "./login.css"
+import "./register.css"
 
-export default function login(){
+export default function register(){
     
   const [state, setEstate] = useState({
     email:"",
     password:""
+   
 });
 
     const handleChange = (event)=>{
@@ -21,12 +22,10 @@ export default function login(){
         <div className="container">
             <input onChange={handleChange} name="email" value={state.email} type="text" placeholder="email"/> 
             <input type="password" placeholder="123456"/>
-            <input type="password" placeholder="123456"/>
 
 
-            <button>login</button>  
+            <button>register</button>  
             </div>
 
 )
 }
-
