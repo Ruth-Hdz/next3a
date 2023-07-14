@@ -1,13 +1,24 @@
 'use client'
 import React from "react"
 import "./Register.css"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Register} from "../../services/firebase/auth"
+
 
 function Register() {
 
-    const [state, setState] = React.useState({
-        email: "",
-        password: ""
-    })
+    const auth = getAuth(email,password);
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 
     function handleChange(event) {
         const value = event.target.value;
@@ -33,4 +44,6 @@ function Register() {
     )
 }
 
-export default Register;
+export {login,
+     Register
+}

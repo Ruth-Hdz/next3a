@@ -1,5 +1,6 @@
 'use client'
 import React from "react"
+import { Login } from "../../services/firebase/auth"
 import "./login.css"
 
 function Login() {

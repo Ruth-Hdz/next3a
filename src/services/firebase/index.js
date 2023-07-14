@@ -9,15 +9,11 @@ const firebaseConfig = {
   authDomain: process.env.ZAPATITOS_AUTH_DOMAIN,
   projectId: process.env.ZAPATITOS_PROJECT_ID,
   storageBucket: process.env.ZAPATITOS_STORAGE_BUCKET,
-  messagingSenderId: process.env.ZAPATITOS_SENDER_ID,
-  appId: process.env.ZAPATITOS_APP_ID,
+  messagingSenderId: process.env.ZAPATITOS_MESSAGING_SENDER_ID,
+  appId: process.env.ZAPATITOS_APP_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
-
-
-
-
+export default app;
