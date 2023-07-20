@@ -1,49 +1,46 @@
 'use client'
-import React from "react"
-import "./Register.css"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { Register} from "../../services/firebase/auth"
+import { useState} from "react"; 
+import { TextField, Stack} from '@mui/material'; 
 
+export default function Register () {
 
-function Register() {
+    const [state, setState] = useState({
+        email: "",
+        password: ""
+    });
 
-    const auth = getAuth(email,password);
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-
-    function handleChange(event) {
-        const value = event.target.value;
-        const name = event.target.name;
-        
+    const handleChange = (event)=>{
+        const {name , value} = event.target;
         setState({
             ...state,
             [name]: value
         })
     }
 
-    function onRegister() {
-        const {email, password} = state;
-        Register(email, password)
-    }
-
     return (
-        <div className="container">
-            <input onChange={handleChange} name="email" type="text" value={state.email} />
-            <input onChange={handleChange} name="password" type="password" value={state.password} />
-            <button onClick={onRegister}>Register</button>
-        </div>
+        <Stack
+        width="500px"
+        spacing={2}
+        px="10px"
+        mx={4}
+
+        >
+
+            <TextField 
+            onChange= {handleChange} 
+            name="email" 
+            type="text" 
+            value={state.email}
+            label="email"
+             />
+            <TextField 
+            onChange={handleChange} 
+            name="password" 
+            type="password" 
+            label="12345"
+            />
+            <button variant="">Register</button>
+        </Stack>
     )
 }
 
-export {login,
-     Register
-}
