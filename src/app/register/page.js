@@ -8,7 +8,11 @@ export default function Register () {
         email: "",
         password: ""
     });
-
+    
+    const onRegister = () => {
+        const {email, password} = state;
+        Register(email, password)
+    }
     const handleChange = (event)=>{
         const {name , value} = event.target;
         setState({
